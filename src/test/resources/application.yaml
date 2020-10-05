@@ -1,0 +1,40 @@
+server:
+  port: 8080
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.StdDateFormat
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  jpa:
+    generate-ddl: true
+    properties:
+      default_schema: m4m
+      hibernate:
+        hbm2ddl:
+          auto: create-drop
+        temp.use_jdbc_metadata_defaults: false
+        cache:
+          use_second_level_cache: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    continue-on-error: false
+    hikari:
+      pool-name: HikariPool-Mdes
+      maximum-pool-size: 4
+      minimum-idle: 2
+      idle-timeout: 150000
+      max-lifetime: 300000
+      connection-timeout: 5000
+      validation-timeout: 2000
+      leak-detection-threshold: 300000
+      register-mbeans: false
+      jdbc-url: jdbc:h2:mem:mdes;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE;
+      driver-class-name: org.h2.Driver
+      username: test
+      password: test
+    initialization-mode: always
+    platform: h2
