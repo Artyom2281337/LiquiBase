@@ -3,5 +3,5 @@ package com.example.feature.services;
 import java.util.List;
 
 public interface DestService {
-    void insertData(String... args);
+    void insertData(String name, String type);
 }

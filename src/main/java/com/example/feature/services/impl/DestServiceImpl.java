@@ -24,8 +24,8 @@ public class DestServiceImpl implements DestService {
 
     @Override
     @Transactional
-    public void insertData(String... args) {
-        destDaoService.insertDataWithProcedure(args);
+    public void insertData(String name, String type) {
+        destDaoService.insertDataWithProcedure(name, type);
         List<DestSystem> destSystems = destSystemRepository.findAll();
         List<DestEndpoint> destEndpoints = destEndpointRepository.findAll();
         int a = 0;
