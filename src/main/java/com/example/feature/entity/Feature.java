@@ -8,6 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "FEATURE", schema = "origination_proxy")
 public class Feature {
 
     @Id
